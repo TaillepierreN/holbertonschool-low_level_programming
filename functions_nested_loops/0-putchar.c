@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * main - print _putchar using header
- *
- * Return 0 (success) 
- */
+  * main - print _putchar using header
+  *
+  * Return: 0 (success)
+  */
+
 int main(void)
 {
 	_putchar('_');
@@ -15,5 +16,6 @@ int main(void)
 	_putchar('h');
 	_putchar('a');
 	_putchar('r');
+	_putchar(' ');
 	return (0);
 }

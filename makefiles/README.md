@@ -4,7 +4,7 @@
   the first Makefile
 
 #*1-Makefile*
-  name of the executable: school
+  name of the executable: school \n
   rules: all
   variables: CC, SRC
 

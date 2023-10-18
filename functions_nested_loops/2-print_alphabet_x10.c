@@ -5,7 +5,7 @@
   *
   * Return: 0 success
   */
-int print_alphabet_x10(void)
+ print_alphabet_x10(void)
 {
 	int i;
 	char ltr;
@@ -16,5 +16,4 @@ int print_alphabet_x10(void)
 			_putchar(ltr);
 		_putchar('\n');
 	}
-	return (0);
 }

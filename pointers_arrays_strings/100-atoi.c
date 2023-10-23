@@ -9,6 +9,7 @@
 int _atoi(char *s)
 {
 	int result = 0, i = 0, posneg = 1;
+	unsigned int nbr = 0;
 
 	while (s[i] != '\0')
 	{
@@ -22,12 +23,13 @@ int _atoi(char *s)
 
 	while (s[i] >= '0' && s[i] <= '9')
 	{
-		result = result * 10;
-		result = result + (s[i] - 48);
+		nbr = nbr * 10;
+		nbr = nbr + (s[i] - 48);
 		i++;
 	}
 	if (posneg == 1)
-		return (result);
+		result = nbr;
 	else
-		return (-result);
+		result = -nbr;
+	return (result);
 }

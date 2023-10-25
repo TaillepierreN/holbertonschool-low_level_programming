@@ -16,9 +16,9 @@ char *leet(char *str)
 	{
 		for (y = 0; y < 10; y++)
 		{
-			if(str[i] == tochange[y])
+			if (str[i] == tochange[y])
 				str[i] = changeto[y];
-		}		
+		}
 		i++;
 	}
 	return (str);

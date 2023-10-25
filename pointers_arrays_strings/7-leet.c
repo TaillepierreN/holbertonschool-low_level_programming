@@ -10,15 +10,14 @@ char *leet(char *str)
 {
 	int i = 0, y;
 	char tochange[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
+	char changeto[] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'};
 
 	while (str[i] != '\0')
 	{
 		for (y = 0; y < 10; y++)
 		{
-			if(str[i] == tochange[0] || str[i] == tochange[1])
-					str[i] = 52;
-			else if (str[i] == tochange[2] || str[i] == tochange[3])
-				str[i] = 53;
+			if(str[i] == tochange[y])
+				str[i] = changeto[y];
 		}		
 		i++;
 	}

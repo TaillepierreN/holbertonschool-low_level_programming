@@ -4,6 +4,7 @@
  * main - print the name of the program even if it's not slim shady
  * @argc: argument count
  * @argv: argument value
+ * Return: 0 (success)
  */
 
 int main(__attribute__((unused)) int argc, char *argv[])

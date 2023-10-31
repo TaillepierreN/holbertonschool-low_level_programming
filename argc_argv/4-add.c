@@ -6,7 +6,7 @@
  * main - add positive numbers
  * @argc: argument count
  * @argv: argument value
- * Return 0 (success) or 1 (error)
+ * Return: 0 (success) or 1 (error)
  */
 
 int main(int argc, char *argv[])
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	}
 	for (i = 1; i < argc; i++)
 	{
-		if(*argv[i] >= '0' && *argv[i] <= '9')
+		if (*argv[i] >= '0' && *argv[i] <= '9')
 		{
 			sum += atoi(argv[i]);
 		}

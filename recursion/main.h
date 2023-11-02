@@ -23,4 +23,8 @@ int is_prime_number(int n);
 
 int check_if_prime(int n, int i);
 
+int is_palindrome(char *s);
+
+void check_palindrome(char *s, int length, int middle, int i, int *value);
+
 #endif

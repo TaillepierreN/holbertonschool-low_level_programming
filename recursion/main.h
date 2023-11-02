@@ -27,4 +27,6 @@ int is_palindrome(char *s);
 
 void check_palindrome(char *s, int length, int middle, int i, int *value);
 
+int wildcmp(char *s1, char *s2);
+
 #endif

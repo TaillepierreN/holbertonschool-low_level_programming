@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int i, amount;
-	
+
 	if (argc != 2)
 	{
 		printf("Error\n");

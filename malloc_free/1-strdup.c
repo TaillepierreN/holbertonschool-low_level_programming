@@ -22,8 +22,12 @@ char *_strdup(char *str)
 	if (string == NULL)
 		return (NULL);
 
-	for (i = 0; i < strlength; i++)
+/*	for (i = 0; i < strlength; i++)*/
+	i = 0;
+	while (str[i] != '\0')
+	{
 		string[i] = str[i];
-
+		i++;
+	}
 	return (string);
 }

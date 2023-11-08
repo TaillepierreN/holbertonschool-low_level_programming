@@ -22,7 +22,7 @@ char *str_concat(char *s1, char *s2)
 		newstring[0] = '\0';
 		return (newstring);
 	}
-	newstring = malloc(sizeof(char) * (sumlength));
+	newstring = malloc(sizeof(char) * (sumlength + 1));
 	for (i = 0; i < firstlength; i++)
 	{
 		newstring[i] = s1[i];

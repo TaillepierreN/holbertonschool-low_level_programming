@@ -11,7 +11,7 @@ char *argstostr(int ac, char **av)
 {
 	int i = 0, j, totallength = 0, k = 0;
 	char *string;
-	
+
 	if (ac == 0 || av == NULL)
 		return (NULL);
 	while (i < ac)
@@ -32,7 +32,7 @@ char *argstostr(int ac, char **av)
 	while (i < ac)
 	{
 		j = 0;
-		while(av[i][j] != '\0')
+		while (av[i][j] != '\0')
 		{
 			string[k] = av[i][j];
 			j++;

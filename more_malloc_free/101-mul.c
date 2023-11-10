@@ -2,14 +2,15 @@
 
 /**
  * main - multiplies two positive numbers
- * @ac: argument count
- * @av: argument value
+ * @argc: argument count
+ * @argv: argument value
  * Return: 0 (success)
  */
 
 int main(int argc, char *argv[])
 {
 	int i, j, num[2], result = 0, nbr = 0;
+
 	if (argc != 3)
 	{
 		printf("Error\n");
@@ -18,7 +19,7 @@ int main(int argc, char *argv[])
 	for (i = 1; i < argc; i++)
 	{
 		nbr = 0;
-		for (j = 0; argv[i][j] !='\0'; j++)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 			if (argv[i][j] >= '0' && argv[i][j] <= '9')
 			{
@@ -34,6 +35,6 @@ int main(int argc, char *argv[])
 		num[i - 1] = nbr;
 	}
 	result = num[0] * num[1];
-	printf("%d\n",result);
+	printf("%d\n", result);
 	return (0);
 }

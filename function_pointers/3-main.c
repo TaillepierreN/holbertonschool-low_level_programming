@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 {
 	int num1, num2, result;
 	int (*calculate)(int, int);
+	char *operator;
 
 	if (argc != 4)
 	{
@@ -20,13 +21,16 @@ int main(int argc, char *argv[])
 
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
+	operator = argv[2];
+	calculate = get_op_func(operator);
 
-	calculate = get_op_func(argv[2]);
-
-	if (calculate == NULL)
+	if (((*operator == '/' || *operator == '%') && num2 == 0) || calculate == NULL)
 	{
 		printf("Error\n");
-		exit(99);
+		if (calculate == NULL)
+			exit(99);
+		else
+			exit (100);
 	}
 
 	result = calculate(num1, num2);

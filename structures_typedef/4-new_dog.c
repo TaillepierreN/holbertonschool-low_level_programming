@@ -21,47 +21,22 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(doggo);
 		return (NULL);
 	}
-	doggo->name = _strdup(name);
+	doggo->name = malloc(strlen(name) + 1);
 	if (doggo->name == NULL)
 	{
 		free(doggo);
 		return (NULL);
 	}
+	strcpy(doggo->name, name);
 	doggo->age = age;
-	doggo->owner = _strdup(owner);
+	doggo->owner = malloc(strlen(owner) + 1);
+
 	if (doggo->owner == NULL)
 	{
 		free(doggo->name);
 		free(doggo);
 		return (NULL);
 	}
+	strcpy(doggo->owner, owner);
 	return (doggo);
-}
-/**
- * _strdup - return a pointer to a newly allocated space in memory
- * which contain a copy of the string given as a parameter
- * @str: string to copy
- * Return: pointer to string
- */
-
-char *_strdup(char *str)
-{
-	char *string;
-	int strlength, i;
-
-	if (str == NULL)
-		return (NULL);
-
-	strlength = strlen(str);
-	string = malloc((strlength + 1) * sizeof(char));
-
-	if (string == NULL)
-		return (NULL);
-	i = 0;
-	while (str[i] != '\0')
-	{
-		string[i] = str[i];
-		i++;
-	}
-	return (string);
 }

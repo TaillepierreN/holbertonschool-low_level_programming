@@ -24,13 +24,13 @@ int main(int argc, char *argv[])
 	operator = argv[2];
 	calculate = get_op_func(operator);
 
-	if (((*operator == '/' || *operator == '%') && num2 == 0) || calculate == NULL)
+	if (((*operator == '/' || *operator == '%') && num2 == 0) || !calculate)
 	{
 		printf("Error\n");
 		if (calculate == NULL)
 			exit(99);
 		else
-			exit (100);
+			exit(100);
 	}
 
 	result = calculate(num1, num2);

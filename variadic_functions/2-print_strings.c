@@ -24,10 +24,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (i != 0 && separator != NULL)
 			printf("%s", separator);
 		temp = va_arg(str_list, char *);
-		if (temp)
-		{
-			printf("%s", (temp[0] == '\0' ? nil : temp));
-		}
+		printf("%s", (temp ? temp : nil));
 	}
 	printf("\n");
 	va_end(str_list);

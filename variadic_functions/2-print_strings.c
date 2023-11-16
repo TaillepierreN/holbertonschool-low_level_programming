@@ -27,4 +27,5 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		printf("%s", (temp ? temp : nil));
 	}
 	printf("\n");
+	va_end(str_list);
 }

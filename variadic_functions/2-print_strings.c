@@ -15,16 +15,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	va_start(str_list, n);
 
-	if (separator == NULL)
-	{
-		printf("\n");
-		return;
-	}
-	if (n < 1)
-	{
-		printf("\n");
-		return;
-	}
 	for (i = 0; i < n; i++)
 	{
 		if (i != 0 && separator != NULL)

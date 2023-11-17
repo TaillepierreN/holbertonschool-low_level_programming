@@ -40,6 +40,7 @@ void print_all(const char * const format, ...)
 	};
 	int i = 0, j = 0;
 	va_list data_list;
+	char *separator = "";
 
 	va_start(data_list, format);
 	while (format != NULL && format[i] != '\0')
@@ -48,9 +49,14 @@ void print_all(const char * const format, ...)
 		while (datatypes[j].charac != '\0')
 		{
 			if (format[i] == datatypes[j].charac)
+			{
+				printf("%s", separator);
 				datatypes[j].func(data_list);
+				separator = ", ";
+			}
 			j++;
 		}
 		i++;
 	}
+	printf("\n");
 }

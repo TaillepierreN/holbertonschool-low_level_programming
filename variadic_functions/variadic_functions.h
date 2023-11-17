@@ -5,6 +5,12 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+/**
+ * struct datatypes - struct datatype
+ *
+ * @charac: the char to check wich type is to be printed
+ * @func: the function associated
+ */
 typedef struct datatypes
 {
 	char charac;

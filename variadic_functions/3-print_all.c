@@ -37,7 +37,7 @@ void print_string(va_list data_list)
 	char *string;
 
 	string = va_arg(data_list, char *);
-	if (!string)
+	if (string == NULL)
 	{
 		printf("(nil)");
 	}

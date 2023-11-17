@@ -41,6 +41,7 @@ void print_string(va_list data_list)
 	{
 		printf("(nil)");
 	}
+	else
 	printf("%s", string);
 }
 

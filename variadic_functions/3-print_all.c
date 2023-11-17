@@ -40,8 +40,8 @@ void print_string(va_list data_list)
 	if (string == NULL)
 	{
 		printf("(nil)");
+		return;
 	}
-	else
 	printf("%s", string);
 }
 

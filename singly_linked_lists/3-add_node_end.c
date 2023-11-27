@@ -13,13 +13,13 @@ list_t *add_node_end(list_t **head, const char *str)
         return (NULL);
     newList->len = strlen(str);
     newList->next = NULL;
-    last = (*head)->next;
     if (*head == NULL)
     {
         *head = newList;
         return (*head);
     }
-    while (last != NULL)
+    last = (*head)->next;
+    while (last->next != NULL)
         last = last->next;
     last->next = newList;
     return (newList);

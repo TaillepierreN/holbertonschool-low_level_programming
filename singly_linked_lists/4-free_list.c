@@ -9,6 +9,7 @@ void free_list(list_t *head)
     {
         bin = temp;
         temp = temp->next;
+        free(bin->str);
         free(bin);
     }
 

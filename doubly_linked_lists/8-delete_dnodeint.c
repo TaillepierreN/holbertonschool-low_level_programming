@@ -1,5 +1,13 @@
 #include "lists.h"
 
+/**
+ * delete_dnodeint_at_index - delete node at given position
+ * in a dlistint_t list
+ * @head: adress of the list
+ * @index: position where to delete node
+ * Return: 1 if succeeded, -1 if failed
+ */
+
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	unsigned int i = 0;

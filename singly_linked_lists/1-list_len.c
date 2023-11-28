@@ -8,12 +8,12 @@
 
 size_t list_len(const list_t *h)
 {
-    unsigned int nbrelem = 0;
+	unsigned int nbrelem = 0;
 
-    while (h != NULL)
-    {
-        nbrelem++;
-        h = h->next;
-    }
-    return(nbrelem);
+	while (h != NULL)
+	{
+		nbrelem++;
+		h = h->next;
+	}
+	return (nbrelem);
 }

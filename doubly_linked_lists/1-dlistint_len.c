@@ -10,6 +10,8 @@ size_t dlistint_len(const dlistint_t *h)
 {
 	unsigned int nbrelem = 0;
 
+	if ( h == NULL)
+		return (NULL);
 	while (h->prev != NULL)
 	{
 		h = h->prev;

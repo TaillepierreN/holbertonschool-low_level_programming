@@ -18,12 +18,12 @@ int _pow_recursion(int x, int y)
 }
 
 /**
- * binary_to_uint - converts a string containing binary into an 
+ * binary_to_uint - converts a string containing binary into an
  * unsigned int
  * @b: string containing the binary
  * Return: converted number, 0 if fail
- * 
-*/
+ *
+ */
 unsigned int binary_to_uint(const char *b)
 {
     int i = 0, strlength = 0;

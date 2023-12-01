@@ -13,6 +13,10 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int xor_result;
 
 	xor_result = n ^ m;
+
+	if (n >= sizeof(unsigned long int) * 8 || m >= sizeof(unsigned long int) * 8)
+		return (-1);
+		
 	while (xor_result != 0)
 	{
 		count += (xor_result & 1);

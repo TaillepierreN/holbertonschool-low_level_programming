@@ -2,7 +2,7 @@
 
 /**
  * print_binary - print the binary representation of a number
- * @n number to print in binary
+ * @n: number to print in binary
 */
 void print_binary(unsigned long n)
 {
@@ -17,7 +17,7 @@ void print_binary(unsigned long n)
 }
 /**
  * print_binary_rec - recursively iterates through n to print in binary
- * @n number to print in binary
+ * @n: number to print in binary
 */
 void print_binary_rec(unsigned long int n)
 {

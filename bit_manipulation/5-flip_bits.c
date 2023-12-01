@@ -9,12 +9,15 @@
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	/*unsigned int i;*/
+	unsigned int count;
 	unsigned int xor_result;
 
 	xor_result = n ^ m;
+	while (xor_result != 0)
+	{
+		count += (xor_result & 1);
+		xor_result >> 1;
+	}
 
-	printf("xor is %u\n", xor_result);
-	printf("binary is %u\n", (xor_result & 1));
-	return(xor_result);
+	return (count);
 }

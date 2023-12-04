@@ -4,6 +4,7 @@
  * file_from - copies the content of a file to another
  * @argc: number of argument
  * @argv: value of the arguments
+ * @Return: success (0)
 */
 
 int main(int argc, char *argv[])
@@ -46,12 +47,12 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	if (close(file_from == -1))
+	if (close(file_from) == -1)
 	{
 		dprintf(2, "Error: can't close fd %d\n", file_from);
 		exit(100);
 	}
-	if (close(file_to == -1))
+	if (close(file_to) == -1)
 	{
 		dprintf(2, "Error: can't close fd %d\n", file_to);
 		exit(100);

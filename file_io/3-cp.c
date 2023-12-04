@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * main - copies the content of a file to another
- * @argc: number of argument
- * @argv: value of the arguments
- * @Return: success (0)
-*/
+ * print_error_exit - handle error message and exit from main
+ * @msg: error message
+ * @argstr: string argument if relevant,else empty
+ * @argint: int argument if relevant, else 0
+ * @errnum: error int to return with exit
+ */
 void print_error_exit(char *msg, char *argstr, int argint, int errnum)
 {
 	if (errnum >= 97 && errnum <= 99)
@@ -14,7 +15,12 @@ void print_error_exit(char *msg, char *argstr, int argint, int errnum)
 		dprintf(2, msg, argint);
 	exit(errnum);
 }
-
+/**
+ * main - copies the content of a file to another
+ * @argc: number of argument
+ * @argv: value of the arguments
+ * @Return: success (0)
+*/
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, read_from, write_to;

@@ -6,7 +6,7 @@
  * @argv: value of the arguments
 */
 
-int main(int argc, char **argv[])
+int main(int argc, char *argv[])
 {
 	int file_from, file_to, read_from, write_to;
 	char buffer[1024];

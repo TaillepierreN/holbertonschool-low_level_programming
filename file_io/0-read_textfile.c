@@ -13,6 +13,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
     int fd;
     ssize_t nbr_written;
+    char *buffer[letters];
 
     if (!filename)
         return (0);
@@ -20,8 +21,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
     if (fd == -1)
         return (0);
-    
-    nbr_written = write(STDOUT_FILENO, filename, letters);
+    read(fd, buffer, sizeof(buffer));
+    nbr_written = write(STDOUT_FILENO, buffer, letters);
 
     if (nbr_written <= 0)
         return (0);

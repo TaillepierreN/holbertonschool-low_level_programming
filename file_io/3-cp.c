@@ -19,7 +19,7 @@ void print_error_exit(char *msg, char *argstr, int argint, int errnum)
  * main - copies the content of a file to another
  * @argc: number of argument
  * @argv: value of the arguments
- * @Return: success (0)
+ * Return: success (0)
 */
 int main(int argc, char *argv[])
 {

@@ -21,7 +21,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
     buffer = malloc(letters);
     if (fd == -1)
         return (0);
-    read(fd, buffer, sizeof(buffer));
+    read(fd, buffer, sizeof(letters));
     nbr_written = write(STDOUT_FILENO, buffer, letters);
 
     if (nbr_written <= 0)

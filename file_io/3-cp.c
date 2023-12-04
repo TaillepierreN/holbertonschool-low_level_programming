@@ -56,4 +56,5 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: can't close fd %d\n", file_to);
 		exit(100);
 	}
+	return (0);
 }

@@ -17,18 +17,18 @@ int append_text_to_file(const char *filename, char *text_content)
 	file_to_modify = open(filename, O_APPEND | O_WRONLY);
 	if (file_to_modify == -1)
 	{
-		perror("file to mod");
+		perror("File to modify doesn't exist");
 		return (-1);
 	}
 	if (file_to_modify && !text_content)
 	{
-		perror("file exist");
+		perror("Nothing to add");
 		return (1);
 	}
 	file_modified = write(file_to_modify, text_content, strlen(text_content));
 	if (file_modified == -1)
 	{
-		perror("can't modify");
+		perror("Can't modify the file");
 		close(file_to_modify);
 		return (-1);
 	}

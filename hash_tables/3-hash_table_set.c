@@ -35,9 +35,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned char *unsigned_key;
 	hash_node_t *new_element, *current_element;
 
-	if (key[0] == '\0')
+	if (key[0] == '\0' || key == NULL)
 		return (0);
 	unsigned_key = malloc(sizeof(unsigned char) * strlen(key));
+	strcpy(unsigned_key, key);
 	index = key_index(unsigned_key, ht->size);
 	free(unsigned_key);
 	new_element = create_element(key, value);

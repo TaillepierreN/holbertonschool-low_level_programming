@@ -46,9 +46,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	dupeValue = strdup(value);
 	if (!dupeValue)
 		return (0);
-	new_element = create_element(key, dupeValue);
-	if (!new_element)
-		return (0);
 	current_element = ht->array[index];
 	if (current_element)
 	{
@@ -58,15 +55,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			{
 				free(current_element->value);
 				current_element->value = strdup(dupeValue);
-				free(new_element->key);
-				free(new_element->value);
-				free(new_element);
 				return (1);
 			}
 			current_element = current_element->next;
 		}
-		new_element->next = ht->array[index];
+	new_element = create_element(key, dupeValue);
+	if (!new_element)
+		return (0);
 	}
+	new_element->next = ht->array[index];
 	ht->array[index] = new_element;
 	return (1);
 }

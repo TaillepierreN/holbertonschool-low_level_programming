@@ -34,7 +34,8 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
 		print_error_exit("Error: Can't write from file %s\n", argv[2], 0, 99);
-	while (read_from)
+	read_from = 1;
+	while (read_from > 0)
 	{
 		read_from = read(file_from, buffer, 1024);
 		if (read_from == -1)

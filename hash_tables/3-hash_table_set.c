@@ -47,8 +47,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!dupeValue)
 		return (0);
 	current_element = ht->array[index];
-
-		while (current_element->next != NULL)
+	if (current_element)
+	{
+		while (current_element != NULL)
 		{
 			if (strcmp(current_element->key, key) == 0)
 			{
@@ -59,7 +60,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			current_element = current_element->next;
 		}
-
+	}
 	new_element = create_element(key, dupeValue);
 	if (!new_element)
 	{

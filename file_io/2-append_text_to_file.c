@@ -14,18 +14,15 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (!filename)
 		return (-1);
 
-	file_to_modify = open(filename, O_APPEND | O_WRONLY);
+	file_to_modify = open(filename, O_CREAT | O_APPEND | O_WRONLY);
 	if (file_to_modify == -1)
 	{
 		perror("File to modify doesn't exist");
 		return (-1);
 	}
-	if (file_to_modify && !text_content)
-	{
-		perror("Nothing to add");
-		return (-1);
-	}
-	file_modified = write(file_to_modify, text_content, strlen(text_content));
+	if (text_content)
+		file_modified = write(file_to_modify, text_content, strlen(text_content));
+	
 	if (file_modified == -1)
 	{
 		perror("Can't modify the file");

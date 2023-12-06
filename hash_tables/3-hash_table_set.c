@@ -33,16 +33,12 @@ hash_node_t *create_element(const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	unsigned char *unsigned_key;
 	char *dupeValue;
 	hash_node_t *new_element, *current_element;
 
 	if (!key || !ht || !value)
 		return (0);
-	unsigned_key = malloc(sizeof(unsigned char) * strlen(key));
-	memcpy(unsigned_key, key, strlen(key) + 1);
-	index = key_index(unsigned_key, ht->size);
-	free(unsigned_key);
+	index = key_index((const unsigned char *)key, ht->size);
 	dupeValue = strdup(value);
 	if (!dupeValue)
 		return (0);
@@ -67,6 +63,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(dupeValue);
 		return (0);
 	}
+	free(dupeValue);
 	new_element->next = ht->array[index];
 	ht->array[index] = new_element;
 	return (1);

@@ -14,14 +14,12 @@ hash_node_t *create_element(const char *key, const char *value)
 	if (!element)
 		return (NULL);
 	element->key = strdup(key);
-	element->value = strdup(value);
-	if (!element->key || !element->value)
+	if (!element->key)
 	{
-		free(element->key);
-		free(element->value);
 		free(element);
 		return (NULL);
 	}
+	element->value = strdup(value);
 	element->next = NULL;
 	return (element);
 }

@@ -16,7 +16,7 @@ void print_error(int error, char *argv[], int file)
 	}
 	else if (error == 1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write into file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	else if (error == 2)
@@ -26,7 +26,7 @@ void print_error(int error, char *argv[], int file)
 	}
 	else if (error == 3)
 	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
 		exit(100);
 	}
 }

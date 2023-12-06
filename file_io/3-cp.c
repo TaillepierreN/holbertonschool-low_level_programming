@@ -39,14 +39,13 @@ int main(int argc, char *argv[])
 {
 	int file_from, file_to, read_from, write_to;
 	char buffer[1024];
-	
 
 	if (argc != 3)
 		print_error(2, argv, 0);
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 		print_error(0, argv, 0);
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0666);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
 		print_error(1, argv, 0);
 	read_from = 1;

@@ -1,7 +1,5 @@
 #include "main.h"
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <fcntl.h>
+
 /**
  * print_error - handle error message and exit from main
  * @error: int to tell what kind of error it is
@@ -41,14 +39,14 @@ int main(int argc, char *argv[])
 {
 	int file_from, file_to, read_from, write_to;
 	char buffer[1024];
-	mode_t perm = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
+	
 
 	if (argc != 3)
 		print_error(2, argv, 0);
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 		print_error(0, argv, 0);
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, perm);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0666);
 	if (file_to == -1)
 		print_error(1, argv, 0);
 	read_from = 1;

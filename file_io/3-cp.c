@@ -20,7 +20,7 @@ void print_error_exit(char *msg, char *argstr, int argint, int errnum)
  * @argc: number of argument
  * @argv: value of the arguments
  * Return: success (0)
-*/
+ */
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, read_from, write_to;
@@ -35,18 +35,15 @@ int main(int argc, char *argv[])
 	if (file_to == -1)
 		print_error_exit("Error: Can't write from file %s\n", argv[2], 0, 99);
 	read_from = 1;
-	while (read_from > 0)
+	while ((read_from = read(file_from, buffer, 1024)) > 0)
 	{
-		read_from = read(file_from, buffer, 1024);
 		if (read_from == -1)
 			print_error_exit("Error: Can't read from file %s\n", argv[1], 0, 98);
-		if (read_from > 0)
-		{
-			write_to = write(file_to, buffer, read_from);
-			if (write_to == -1)
-				print_error_exit("Error: Can't write from file %s\n", argv[2], 0, 99);
-		}
+		write_to = write(file_to, buffer, read_from);
+		if (write_to == -1)
+			print_error_exit("Error: Can't write from file %s\n", argv[2], 0, 99);
 	}
+
 	if (close(file_from) == -1)
 		print_error_exit("Error: can't close fd %d\n", "", file_from, 100);
 	if (close(file_to) == -1)

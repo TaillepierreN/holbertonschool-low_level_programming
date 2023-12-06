@@ -4,7 +4,6 @@
  * print_error - handle error message and exit from main
  * @error: int to tell what kind of error it is
  * @argv: argument needed for some of the errors
- * @file: int of the file needed for some errors
  */
 
 void print_error(int error, char *argv[])

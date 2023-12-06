@@ -13,7 +13,7 @@ hash_node_t *create_element(const char *key, const char *value)
 	element = malloc(sizeof(hash_node_t));
 	if (!element)
 		return (NULL);
-	element->key = key;
+	element->key = strdup(key);
 	if (!element->key)
 	{
 		free(element);

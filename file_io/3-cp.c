@@ -26,7 +26,7 @@ void print_error(int error, char *argv[], int file)
 	}
 	else if (error == 3)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", file);
 		exit(100);
 	}
 }

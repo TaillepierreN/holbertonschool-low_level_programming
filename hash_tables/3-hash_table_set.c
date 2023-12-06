@@ -36,7 +36,7 @@ hash_node_t *create_element(const char *key, const char *value)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index, i;
+	unsigned long int index;
 	unsigned char *unsigned_key;
 	hash_node_t *new_element, *current_element;
 

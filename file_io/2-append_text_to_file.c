@@ -9,7 +9,7 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int file_to_modify, file_modified;
+	int file_to_modify, file_modified, i;
 
 	if (!filename)
 		return (-1);
@@ -21,8 +21,11 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	}
 	if (text_content)
-		file_modified = write(file_to_modify, text_content, strlen(text_content));
-	
+	{
+		while (text_content[i])
+			i++;
+		file_modified = write(file_to_modify, text_content, i);
+	}
 	if (file_modified == -1)
 	{
 		perror("Can't modify the file");

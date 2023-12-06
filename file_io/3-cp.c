@@ -20,7 +20,7 @@ void print_error(int error, char *argv[], int file)
 	}
 	else if (error == 2)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	else if (error == 3)

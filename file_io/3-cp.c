@@ -2,18 +2,32 @@
 
 /**
  * print_error_exit - handle error message and exit from main
- * @msg: error message
- * @argstr: string argument if relevant,else empty
- * @argint: int argument if relevant, else 0
- * @errnum: error int to return with exit
+ * @error: int to tell what kind of error it is
+ * @argv: argument needed for some of the errors
+ * @file: int of the file needed for some errors
  */
-void print_error_exit(char *msg, char *argstr, int argint, int errnum)
+void print_error(int error, char *argv[], int file)
 {
-	if (errnum >= 97 && errnum <= 99)
-		dprintf(2, msg, argstr);
-	else
-		dprintf(2, msg, argint);
-	exit(errnum);
+	if (error == 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	else if (error == 1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write into file %s\n", argv[2]);
+		exit(99);
+	}
+	else if (error == 2)
+	{
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+		exit(97);
+	}
+	else if (error == 3)
+	{
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file);
+		exit(100);
+	}
 }
 /**
  * main - copies the content of a file to another
@@ -27,26 +41,26 @@ int main(int argc, char *argv[])
 	char buffer[1024];
 
 	if (argc != 3)
-		print_error_exit("Usage: %s file_from file_to\n", argv[0], 0, 97);
+		print_error(2, argv, 0);
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
-		print_error_exit("Error: Can't read from file %s\n", argv[1], 0, 98);
+		print_error(0, argv, 0);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
-		print_error_exit("Error: Can't write from file %s\n", argv[2], 0, 99);
+		print_error(1, argv, 0);
 	read_from = 1;
 	while ((read_from = read(file_from, buffer, 1024)) > 0)
 	{
 		if (read_from == -1)
-			print_error_exit("Error: Can't read from file %s\n", argv[1], 0, 98);
+			print_error(0, argv, 0);
 		write_to = write(file_to, buffer, read_from);
 		if (write_to == -1)
-			print_error_exit("Error: Can't write from file %s\n", argv[2], 0, 99);
+			print_error(1, argv, 0);
 	}
 
 	if (close(file_from) == -1)
-		print_error_exit("Error: can't close fd %d\n", "", file_from, 100);
+		print_error(3, argv, file_from);
 	if (close(file_to) == -1)
-		print_error_exit("Error: can't close fd %d\n", "", file_to, 100);
+		print_error(3, argv, file_to);
 	return (0);
 }

@@ -51,13 +51,13 @@ int main(int argc, char *argv[])
 	read_from = 1;
 	while ((read_from = read(file_from, buffer, 1024)) > 0)
 	{
-		if (read_from == -1)
-			print_error(0, argv, 0);
 		write_to = write(file_to, buffer, read_from);
 		if (write_to == -1)
 			print_error(1, argv, 0);
 	}
 
+	if (read_from == -1)
+		print_error(0, argv, 0);
 	if (close(file_from) == -1)
 		print_error(3, argv, file_from);
 	if (close(file_to) == -1)

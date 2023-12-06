@@ -17,7 +17,6 @@ int append_text_to_file(const char *filename, char *text_content)
 	file_to_modify = open(filename, O_CREAT | O_APPEND | O_RDWR);
 	if (file_to_modify == -1)
 	{
-		perror("File to modify doesn't exist");
 		return (-1);
 	}
 	if (text_content)
@@ -28,7 +27,6 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 	if (file_modified == -1)
 	{
-		perror("Can't modify the file");
 		close(file_to_modify);
 		return (-1);
 	}

@@ -59,10 +59,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			current_element = current_element->next;
 		}
+	}
 	new_element = create_element(key, dupeValue);
 	if (!new_element)
 		return (0);
-	}
 	new_element->next = ht->array[index];
 	ht->array[index] = new_element;
 	return (1);

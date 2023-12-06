@@ -24,11 +24,6 @@ void print_error(int error, char *argv[], int file)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	else if (error == 3)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", file);
-		exit(100);
-	}
 }
 /**
  * main - copies the content of a file to another
@@ -59,9 +54,12 @@ int main(int argc, char *argv[])
 	if (read_from == -1)
 		print_error(0, argv, 0);
 	if (close(fd_from) == -1)
-		print_error(0, argv, fd_from);
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd_from);
+		exit(100);
+	}
 	if (close(fd_to) == -1)
-		print_error(0, argv, fd_to);
-
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd_to);
+		exit(100);
+	}
 	return (0);
 }

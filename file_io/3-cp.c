@@ -1,5 +1,6 @@
 #include "main.h"
 #include <sys/stat.h>
+#include <sys/types.h>
 #include <fcntl.h>
 /**
  * print_error - handle error message and exit from main

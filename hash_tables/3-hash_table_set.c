@@ -59,7 +59,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(current_element->key, key) == 0)
 			{
 				free(current_element->value);
-				current_element->value = dupeValue;
+				current_element->value = strdup(dupeValue);
 				free(new_element->key);
 				free(new_element->value);
 				free(new_element);

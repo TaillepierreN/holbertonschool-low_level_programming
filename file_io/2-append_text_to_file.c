@@ -21,7 +21,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	}
 	if (text_content)
-		file_modified = write(file_to_modify, text_content, strlen(text_content) + 1);
+		file_modified = write(file_to_modify, text_content, strlen(text_content));
 	
 	if (file_modified == -1)
 	{

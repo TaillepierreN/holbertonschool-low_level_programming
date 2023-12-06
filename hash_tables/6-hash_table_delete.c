@@ -20,11 +20,11 @@ void hash_table_delete(hash_table_t *ht)
 
 			while (element_to_delete)
 			{
-				temp = element_to_delete;
-				element_to_delete =element_to_delete->next;
-				free(temp->key);
-				free(temp->value);
-				free(temp);
+				temp = element_to_delete->next;
+				free(element_to_delete->key);
+				free(element_to_delete->value);
+				free(element_to_delete);
+				element_to_delete = temp;
 			}
 			
 		}

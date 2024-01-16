@@ -1,5 +1,12 @@
 #include "search_algos.h"
 
+/**
+ * linear_sear - search a value in array of int using linear search algorithm
+ * @array: pointer to the first element of the array
+ * @size: size of the array
+ * @value: value to look for in the array
+ * Return: index where the value is,if found otherwise -1
+*/
 int linear_search(int *array, size_t size, int value)
 {
 	unsigned int index;
